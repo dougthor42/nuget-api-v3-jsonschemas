@@ -43,6 +43,10 @@ def test_valid_jsonschema(metaschema, file):
         except ValidationError as err:
             msg = "Invalid JsonSchema file `{}`. Message:\n{}"
             pytest.fail(msg.format(file, str(err)))
+        except Exception as err:
+            msg = ("Unknown exception when validating JsonSchema file {}\n"
+                   "  Message: {}")
+            pytest.fail(msg.format(file, str(err)))
 
 
 @pytest.mark.parametrize("file", FILES)
@@ -64,4 +68,10 @@ def test_sample_file(file):
                 msg = ("Sample file validation failed.\n"
                        "  Schema: {}\n"
                        "  Sample: {}")
-                pytest.fail(msg.format(str(file), str(sample_file)))
+                pytest.fail(msg.format(file, sample_file))
+            except Exception as err:
+                msg = ("Unknown exception occured when validating."
+                       "  Schema: {}\n"
+                       "  Sample: {}\n"
+                       "  Message: {}")
+                pytest.fail(msg.format(file, sample_file, str(err)))
