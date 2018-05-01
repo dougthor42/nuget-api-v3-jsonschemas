@@ -1,2 +1,45 @@
 {
+    "$schema": "http://json-schema.org/schema#",
+    "id": "NuGet.Api.v3.Catalog.Page.json",
+
+    "definitions": {
+        "catalog_item": {
+            "type": "object",
+            "properties": {
+                "@id": { "type": "string" },
+                "@type": { "type": "string" },
+                "commitId": { "type": "string" },
+                "commitTimeStamp": { "type": "string" },
+                "nuget:id": { "type": "string" },
+                "nuget:version": { "type": "string" }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "commitId",
+                "commitTimeStamp",
+                "nuget:id",
+                "nuget:version"
+            ]
+        }
+    },
+
+    "type": "object",
+    "properties": {
+        "commitId": { "type": "string" },
+        "commitTimeStamp": { "type": "string" },
+        "count": { "type": "integer" },
+        "items": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/catalog_item" }
+        },
+        "parent": { "type": "string" }
+    },
+    "required": [
+        "commitId",
+        "commitTimeStamp",
+        "count",
+        "items",
+        "parent"
+    ]
 }
