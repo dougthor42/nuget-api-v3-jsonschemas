@@ -1,4 +1,4 @@
- {
+{
     "$schema": "http://json-schema.org/schema#",
     "id": "NuGet.Api.v3.SearchQueryService.json",
 
