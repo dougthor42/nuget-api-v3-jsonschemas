@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "id": "NuGet.Api.v3.RegistrationsBaseUrl.Leaf.json",
+
+    "type": "object",
+    "properties": {
+        "@id": { "type": "string" },
+        "catalogEntry": { "type": "string" },
+        "listed": { "type": "boolean" },
+        "pacakgeContent": { "type": "string" },
+        "published": { "type": "string" },
+        "registration": { "type": "string" }
+    },
+    "required": [ "@id" ]
+}
