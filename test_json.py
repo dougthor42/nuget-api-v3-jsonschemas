@@ -43,3 +43,25 @@ def test_valid_jsonschema(metaschema, file):
         except ValidationError as err:
             msg = "Invalid JsonSchema file `{}`. Message:\n{}"
             pytest.fail(msg.format(file, str(err)))
+
+
+@pytest.mark.parametrize("file", FILES)
+def test_sample_file(file):
+    # Make sure we have a sample file.
+    name = Path(".".join(file.name.split(".")[3:]))
+    sample_file = file.parent.parent / Path("samples") / name
+    if not sample_file.exists():
+        msg = "Sample file {} not found."
+        pytest.fail(msg.format(str(sample_file)))
+
+    with open(str(file), 'r') as schema_file:
+        schema_data = json.load(schema_file)
+        with open(str(sample_file), 'r') as openf:
+            data = json.load(openf)
+            try:
+                validate(data, schema_data)
+            except ValidationError as err:
+                msg = ("Sample file validation failed.\n"
+                       "  Schema: {}\n"
+                       "  Sample: {}")
+                pytest.fail(msg.format(str(file), str(sample_file)))
