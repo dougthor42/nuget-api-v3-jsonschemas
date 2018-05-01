@@ -38,10 +38,10 @@
             "type": "object",
             "properties": {
                 "@id": { "type": "string" },
-                "authors": { "$ref": "#/dependencies/str_or_array_of_str" },
+                "authors": { "$ref": "#/definitions/str_or_array_of_str" },
                 "dependencyGroups": {
                     "type": "array",
-                    "items": { "$ref": "#/dependencies/dependency_group" }
+                    "items": { "$ref": "#/definitions/dependency_group" }
                 },
                 "description": { "type": "string" },
                 "iconUrl": { "type": "string" },
@@ -53,7 +53,7 @@
                 "published": { "type": "string" },
                 "reqireLicenseAcceptance": { "type": "boolean" },
                 "summary": { "type": "string" },
-                "tags": { "$ref": "#/dependencies/str_or_array_of_str" },
+                "tags": { "$ref": "#/definitions/str_or_array_of_str" },
                 "title": { "type": "string" },
                 "version": { "type": "string" }
             },
@@ -64,7 +64,7 @@
             "type": "object",
             "properties": {
                 "@id": { "type": "string" },
-                "catalogEntry": { "$ref": "#/dependencies/catalog_entry" },
+                "catalogEntry": { "$ref": "#/definitions/catalog_entry" },
                 "packageContent": { "type": "string" }
             },
             "required": [ "@id", "catalogEntry", "packageContent" ]
@@ -77,7 +77,7 @@
                 "count": { "type": "integer" },
                 "items": {
                     "type": "array",
-                    "items": { "$ref": "#/dependencies/registration_leaf" }
+                    "items": { "$ref": "#/definitions/registration_leaf" }
                 },
                 "lower": { "type": "string" },
                 "parent": { "type": "string" },
