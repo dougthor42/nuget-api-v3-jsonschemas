@@ -83,5 +83,5 @@
         "parent": { "type": "string" },
         "upper": { "type": "string" }
     },
-    "required": [ "@id", "count", "items", "lower", "parent", "upper" ]
+    "required": [ "count", "items", "lower", "parent", "upper" ]
 }

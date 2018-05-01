@@ -22,5 +22,5 @@
             "items": { "$ref": "#/definitions/resource" }
         }
     },
-    "required": [ "version", "data" ]
+    "required": [ "version", "resources" ]
 }
