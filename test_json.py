@@ -11,7 +11,6 @@ from jsonschema import validate
 from jsonschema.exceptions import ValidationError
 
 
-METASCHEMA_FILE = Path("metaschema.json")
 # JsonSchema 2.6.0 only supports draft-04 at the time of this writing
 METASCHEMA_URL = "http://json-schema.org/draft-04/schema"
 SCHEMAS = list(f for f in Path('./schemas').iterdir() if f.suffix == ".json")
