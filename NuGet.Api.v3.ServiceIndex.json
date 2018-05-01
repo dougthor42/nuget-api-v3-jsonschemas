@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "id": "NuGet.Api.v3.ServiceIndex.json",
+
+    "definitions": {
+        "resource": {
+            "type": "object",
+            "properties": {
+                "@id": { "type": "string" },
+                "@type": { "type": "string" },
+                "comment": { "type": "string" }
+            },
+            "required": [ "@id", "@type" ]
+        }
+    },
+
+    "type": "object",
+    "properties": {
+        "version": { "type": "string" },
+        "resources": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/resource" }
+        }
+    },
+    "required": [ "version", "data" ]
+}

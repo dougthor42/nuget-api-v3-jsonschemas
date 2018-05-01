@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "id": "NuGet.Api.v3.SearchAutocompleteService.json",
+
+    "type": "object",
+    "properties": {
+        "totalHits": { "type": "integer" },
+        "data": {
+            "type": "array",
+            "items": { "type": "string" }
+        }
+    },
+    "required": [ "totalHits", "data" ]
+}

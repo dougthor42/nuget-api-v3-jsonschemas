@@ -1,0 +1,29 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "id": "NuGet.Api.v3.Catalog.Index.json",
+
+    "definitions": {
+        "index_page": {
+            "type": "object",
+            "properties": {
+                "@id": {"type": "string"},
+                "commitId": {"type": "string"},
+                "commitTimeStamp": {"type": "string"},
+                "count": {"type": "integer"}
+            },
+            "required": [ "@id", "commitId", "commitTimeStamp", "count" ]
+        }
+    },
+
+    "type": "object",
+    "properties": {
+        "commitId": {"type": "string"},
+        "commitTimeStamp": {"type": "string"},
+        "count": {"type": "integer"},
+        "items": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/index_page" }
+        }
+    },
+    "required": [ "commitId", "commitTimeStamp", "count", "items" ]
+}

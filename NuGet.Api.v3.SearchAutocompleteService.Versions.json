@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "id": "NuGet.Api.v3.SearchAutocompleteService.Versions.json",
+
+    "type": "object",
+    "properties": {
+        "data": {
+            "type": "array",
+            "items": { "type": "string" }
+        }
+    },
+    "required": [ "data" ]
+}

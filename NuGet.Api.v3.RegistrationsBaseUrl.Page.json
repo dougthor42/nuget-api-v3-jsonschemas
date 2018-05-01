@@ -1,0 +1,87 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "id": "NuGet.Api.v3.RegistrationsBaseUrl.Page.json",
+
+    "definitions": {
+        "str_or_array_of_str": {
+            "anyOf": [
+                { "type": "string" },
+                { "type": "array", "items": { "type": "string" } }
+            ]
+        },
+
+        "version_range": {
+        },
+
+        "dependency": {
+            "type": "object",
+            "properties": {
+                "id": { "type": "string" },
+                "range": { "$ref": "#/definitions/version_range" },
+                "registration": { "type": "string" }
+            },
+            "required": [ "id" ]
+        },
+
+        "dependency_group": {
+            "type": "object",
+            "properties": {
+                "targetFramework": { "type": "string" },
+                "dependencies": {
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/dependency" }
+                }
+            }
+        },
+
+        "catalog_entry": {
+            "type": "object",
+            "properties": {
+                "@id": { "type": "string" },
+                "authors": { "$ref": "#/dependencies/str_or_array_of_str" },
+                "dependencyGroups": {
+                    "type": "array",
+                    "items": { "$ref": "#/dependencies/dependency_group" }
+                },
+                "description": { "type": "string" },
+                "iconUrl": { "type": "string" },
+                "id": { "type": "string" },
+                "licenseUrl": { "type": "string" },
+                "listed": { "type": "boolean" },
+                "minClientVersion": { "type": "string" },
+                "projectUrl": { "type": "string" },
+                "published": { "type": "string" },
+                "reqireLicenseAcceptance": { "type": "boolean" },
+                "summary": { "type": "string" },
+                "tags": { "$ref": "#/dependencies/str_or_array_of_str" },
+                "title": { "type": "string" },
+                "version": { "type": "string" }
+            },
+            "required": [ "@id", "id", "version" ]
+        },
+
+        "registration_leaf": {
+            "type": "object",
+            "properties": {
+                "@id": { "type": "string" },
+                "catalogEntry": { "$ref": "#/dependencies/catalog_entry" },
+                "packageContent": { "type": "string" }
+            },
+            "required": [ "@id", "catalogEntry", "packageContent" ]
+        }
+    },
+
+    "type": "object",
+    "properties": {
+        "@id": { "type": "string" },
+        "count": { "type": "integer" },
+        "items": {
+            "type": "array",
+            "items": { "$ref": "#/dependencies/registration_leaf" }
+        },
+        "lower": { "type": "string" },
+        "parent": { "type": "string" },
+        "upper": { "type": "string" }
+    },
+    "required": [ "@id", "count", "items", "lower", "parent", "upper" ]
+}
