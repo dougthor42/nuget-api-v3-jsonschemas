@@ -1,2 +1,31 @@
 {
+    "$schema": "http://json-schema.org/schema#",
+    "id": "NuGet.Api.v3.Catalog.Leaf.json",
+
+    "definitions": {
+        "str_or_array_of_str": {
+            "anyOf": [
+                { "type": "string" },
+                { "type": "array", "items": { "type": "string" } }
+            ]
+        }
+    },
+
+    "type": "object",
+    "properties": {
+        "@type": { "$ref": "#/definitions/str_or_array_of_str" },
+        "catalog:commitId": { "type": "string" },
+        "catalog:commitTimeStamp": { "type": "string" },
+        "id": { "type": "string" },
+        "published": { "type": "string" },
+        "version": { "type": "string" }
+    },
+    "required": [
+        "@type",
+        "catalog:commitId",
+        "catalog:commitTimeStamp",
+        "id",
+        "published",
+        "version"
+    ]
 }
